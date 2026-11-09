@@ -1,0 +1,743 @@
+[
+  {
+    "name": "graph_scan",
+    "description": "Adjacency lists, vertices and edges. Returns a deterministic result and a step trace. Never invent missing graph input.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "graph": {
+          "type": "object",
+          "properties": {
+            "vertices": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1,
+              "maxItems": 16
+            },
+            "directed": {
+              "type": "boolean"
+            },
+            "edges": {
+              "type": "array",
+              "maxItems": 60,
+              "items": {
+                "type": "object",
+                "properties": {
+                  "from": {
+                    "type": "string"
+                  },
+                  "to": {
+                    "type": "string"
+                  },
+                  "weight": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "from",
+                  "to",
+                  "weight"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "vertices",
+            "edges",
+            "directed"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "graph"
+      ],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "bfs",
+    "description": "Unweighted shortest paths by BFS; edge weights are ignored. Returns a deterministic result and a step trace. Never invent missing graph input.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "graph": {
+          "type": "object",
+          "properties": {
+            "vertices": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1,
+              "maxItems": 16
+            },
+            "directed": {
+              "type": "boolean"
+            },
+            "edges": {
+              "type": "array",
+              "maxItems": 60,
+              "items": {
+                "type": "object",
+                "properties": {
+                  "from": {
+                    "type": "string"
+                  },
+                  "to": {
+                    "type": "string"
+                  },
+                  "weight": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "from",
+                  "to",
+                  "weight"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "vertices",
+            "edges",
+            "directed"
+          ],
+          "additionalProperties": false
+        },
+        "source": {
+          "type": "string",
+          "description": "Start vertex, exactly as in graph.vertices."
+        }
+      },
+      "required": [
+        "graph",
+        "source"
+      ],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "dijkstra",
+    "description": "Single-source shortest paths. Rejects any negative edge. Returns a deterministic result and a step trace. Never invent missing graph input.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "graph": {
+          "type": "object",
+          "properties": {
+            "vertices": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1,
+              "maxItems": 16
+            },
+            "directed": {
+              "type": "boolean"
+            },
+            "edges": {
+              "type": "array",
+              "maxItems": 60,
+              "items": {
+                "type": "object",
+                "properties": {
+                  "from": {
+                    "type": "string"
+                  },
+                  "to": {
+                    "type": "string"
+                  },
+                  "weight": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "from",
+                  "to",
+                  "weight"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "vertices",
+            "edges",
+            "directed"
+          ],
+          "additionalProperties": false
+        },
+        "source": {
+          "type": "string",
+          "description": "Start vertex, exactly as in graph.vertices."
+        }
+      },
+      "required": [
+        "graph",
+        "source"
+      ],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "bellman_ford",
+    "description": "Shortest paths with negative edges and reachable negative-cycle detection. Returns a deterministic result and a step trace. Never invent missing graph input.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "graph": {
+          "type": "object",
+          "properties": {
+            "vertices": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1,
+              "maxItems": 16
+            },
+            "directed": {
+              "type": "boolean"
+            },
+            "edges": {
+              "type": "array",
+              "maxItems": 60,
+              "items": {
+                "type": "object",
+                "properties": {
+                  "from": {
+                    "type": "string"
+                  },
+                  "to": {
+                    "type": "string"
+                  },
+                  "weight": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "from",
+                  "to",
+                  "weight"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "vertices",
+            "edges",
+            "directed"
+          ],
+          "additionalProperties": false
+        },
+        "source": {
+          "type": "string",
+          "description": "Start vertex, exactly as in graph.vertices."
+        }
+      },
+      "required": [
+        "graph",
+        "source"
+      ],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "floyd_warshall",
+    "description": "All-pairs shortest paths, paths and negative-cycle detection. Returns a deterministic result and a step trace. Never invent missing graph input.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "graph": {
+          "type": "object",
+          "properties": {
+            "vertices": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1,
+              "maxItems": 16
+            },
+            "directed": {
+              "type": "boolean"
+            },
+            "edges": {
+              "type": "array",
+              "maxItems": 60,
+              "items": {
+                "type": "object",
+                "properties": {
+                  "from": {
+                    "type": "string"
+                  },
+                  "to": {
+                    "type": "string"
+                  },
+                  "weight": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "from",
+                  "to",
+                  "weight"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "vertices",
+            "edges",
+            "directed"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "graph"
+      ],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "prim",
+    "description": "Minimum spanning tree of a connected undirected weighted graph. Returns a deterministic result and a step trace. Never invent missing graph input.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "graph": {
+          "type": "object",
+          "properties": {
+            "vertices": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1,
+              "maxItems": 16
+            },
+            "directed": {
+              "type": "boolean"
+            },
+            "edges": {
+              "type": "array",
+              "maxItems": 60,
+              "items": {
+                "type": "object",
+                "properties": {
+                  "from": {
+                    "type": "string"
+                  },
+                  "to": {
+                    "type": "string"
+                  },
+                  "weight": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "from",
+                  "to",
+                  "weight"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "vertices",
+            "edges",
+            "directed"
+          ],
+          "additionalProperties": false
+        },
+        "source": {
+          "type": "string",
+          "description": "Start vertex, exactly as in graph.vertices."
+        }
+      },
+      "required": [
+        "graph"
+      ],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "kruskal",
+    "description": "Minimum spanning tree using sorted edges and Union-Find. Returns a deterministic result and a step trace. Never invent missing graph input.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "graph": {
+          "type": "object",
+          "properties": {
+            "vertices": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1,
+              "maxItems": 16
+            },
+            "directed": {
+              "type": "boolean"
+            },
+            "edges": {
+              "type": "array",
+              "maxItems": 60,
+              "items": {
+                "type": "object",
+                "properties": {
+                  "from": {
+                    "type": "string"
+                  },
+                  "to": {
+                    "type": "string"
+                  },
+                  "weight": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "from",
+                  "to",
+                  "weight"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "vertices",
+            "edges",
+            "directed"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "graph"
+      ],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "union_find",
+    "description": "Union by rank and path compression; show groups after each operation. Returns a deterministic result and a step trace. Never invent missing graph input.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "elements": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "maxItems": 30
+        },
+        "operations": {
+          "type": "array",
+          "maxItems": 100,
+          "items": {
+            "type": "object",
+            "properties": {
+              "op": {
+                "type": "string",
+                "enum": [
+                  "find",
+                  "union"
+                ]
+              },
+              "a": {
+                "type": "string"
+              },
+              "b": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "op",
+              "a"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "elements",
+        "operations"
+      ],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "dfs",
+    "description": "DFS forest with discovery/finish times and tree edges. Returns a deterministic result and a step trace. Never invent missing graph input.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "graph": {
+          "type": "object",
+          "properties": {
+            "vertices": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1,
+              "maxItems": 16
+            },
+            "directed": {
+              "type": "boolean"
+            },
+            "edges": {
+              "type": "array",
+              "maxItems": 60,
+              "items": {
+                "type": "object",
+                "properties": {
+                  "from": {
+                    "type": "string"
+                  },
+                  "to": {
+                    "type": "string"
+                  },
+                  "weight": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "from",
+                  "to",
+                  "weight"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "vertices",
+            "edges",
+            "directed"
+          ],
+          "additionalProperties": false
+        },
+        "source": {
+          "type": "string",
+          "description": "Start vertex, exactly as in graph.vertices."
+        }
+      },
+      "required": [
+        "graph"
+      ],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "biconnected",
+    "description": "Articulation points and vertex-biconnected components represented by their edges, using DFS low values. Returns a deterministic result and a step trace. Never invent missing graph input.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "graph": {
+          "type": "object",
+          "properties": {
+            "vertices": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1,
+              "maxItems": 16
+            },
+            "directed": {
+              "type": "boolean"
+            },
+            "edges": {
+              "type": "array",
+              "maxItems": 60,
+              "items": {
+                "type": "object",
+                "properties": {
+                  "from": {
+                    "type": "string"
+                  },
+                  "to": {
+                    "type": "string"
+                  },
+                  "weight": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "from",
+                  "to",
+                  "weight"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "vertices",
+            "edges",
+            "directed"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "graph"
+      ],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "ford_fulkerson",
+    "description": "Maximum flow with a stack-based augmenting-path search and min cut; integer capacities 0..50. Returns a deterministic result and a step trace. Never invent missing graph input.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "graph": {
+          "type": "object",
+          "properties": {
+            "vertices": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1,
+              "maxItems": 16
+            },
+            "directed": {
+              "type": "boolean"
+            },
+            "edges": {
+              "type": "array",
+              "maxItems": 60,
+              "items": {
+                "type": "object",
+                "properties": {
+                  "from": {
+                    "type": "string"
+                  },
+                  "to": {
+                    "type": "string"
+                  },
+                  "weight": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "from",
+                  "to",
+                  "weight"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "vertices",
+            "edges",
+            "directed"
+          ],
+          "additionalProperties": false
+        },
+        "source": {
+          "type": "string",
+          "description": "Start vertex, exactly as in graph.vertices."
+        },
+        "sink": {
+          "type": "string",
+          "description": "Sink vertex, distinct from source."
+        }
+      },
+      "required": [
+        "graph",
+        "source",
+        "sink"
+      ],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "edmonds_karp",
+    "description": "Maximum flow using BFS augmenting paths and min cut; integer capacities 0..50. Returns a deterministic result and a step trace. Never invent missing graph input.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "graph": {
+          "type": "object",
+          "properties": {
+            "vertices": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1,
+              "maxItems": 16
+            },
+            "directed": {
+              "type": "boolean"
+            },
+            "edges": {
+              "type": "array",
+              "maxItems": 60,
+              "items": {
+                "type": "object",
+                "properties": {
+                  "from": {
+                    "type": "string"
+                  },
+                  "to": {
+                    "type": "string"
+                  },
+                  "weight": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "from",
+                  "to",
+                  "weight"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "vertices",
+            "edges",
+            "directed"
+          ],
+          "additionalProperties": false
+        },
+        "source": {
+          "type": "string",
+          "description": "Start vertex, exactly as in graph.vertices."
+        },
+        "sink": {
+          "type": "string",
+          "description": "Sink vertex, distinct from source."
+        }
+      },
+      "required": [
+        "graph",
+        "source",
+        "sink"
+      ],
+      "additionalProperties": false
+    }
+  }
+]

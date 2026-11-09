@@ -1,0 +1,8 @@
+{
+  "name": "algotutor-ui-checks",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Optional DOM integration checks; the app itself uses plain browser JavaScript.",
+  "scripts": {"test:ui": "node tests/ui.mjs"},
+  "devDependencies": {"jsdom": "26.1.0"}
+}

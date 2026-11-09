@@ -1,0 +1,43 @@
+{
+  "algorithm": "ford_fulkerson",
+  "arguments": {
+    "graph": {
+      "vertices": [
+        "S",
+        "A",
+        "B",
+        "T"
+      ],
+      "directed": true,
+      "edges": [
+        {
+          "from": "S",
+          "to": "A",
+          "weight": 8
+        },
+        {
+          "from": "S",
+          "to": "B",
+          "weight": 5
+        },
+        {
+          "from": "A",
+          "to": "B",
+          "weight": 3
+        },
+        {
+          "from": "A",
+          "to": "T",
+          "weight": 5
+        },
+        {
+          "from": "B",
+          "to": "T",
+          "weight": 8
+        }
+      ]
+    },
+    "source": "S",
+    "sink": "T"
+  }
+}

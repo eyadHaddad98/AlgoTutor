@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#14675d"><title>AlgoTutor · להבין את הדרך</title>
+  <link rel="icon" href="/static/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/app.js" defer></script>
+  <link rel="stylesheet" href="/static/chat_history.css">
+  <script src="/static/chat_history.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="AlgoTutor דף הבית"><img src="/static/icon.svg" alt="" width="36" height="36"><span dir="ltr">Algo<span class="brand-light">Tutor</span></span><span class="brand-divider"></span><small>אלגוריתמים ב׳</small></a>
+    <div class="header-actions"><span id="status" class="status"><i></i>בודק חיבור</span><button id="new-chat" class="quiet">＋ שיחה חדשה</button></div>
+  </header>
+  <main class="page">
+    <section class="intro"><div><p class="eyebrow">ללמוד. להריץ. להבין.</p><h1>לא רק התשובה.<br><span>גם הדרך אליה.</span></h1><p>כל חומר הקורס במקום אחד — עם מקורות מההרצאות<br class="desktop-break"> ואלגוריתמים שאפשר לבדוק, צעד אחר צעד.</p></div><div class="course-stats"><div><strong>11</strong><span>הרצאות במאגר</span></div><div class="stat-rule"></div><div><strong>12</strong><span>כלי חישוב</span></div><svg viewBox="0 0 160 96" aria-hidden="true"><path d="M20 58L61 20 109 68 143 24M20 58L109 68M61 20L143 24"/><circle cx="20" cy="58" r="7"/><circle cx="61" cy="20" r="7"/><circle cx="109" cy="68" r="7"/><circle cx="143" cy="24" r="7"/></svg></div></section>
+    <div id="mode-note" class="mode-note" hidden></div>
+    <div class="workspace">
+      <section class="chat-panel panel" aria-labelledby="chat-heading">
+        <div class="panel-heading"><div><span class="section-index">01</span><h2 id="chat-heading">לשאול וללמוד</h2></div><span class="muted small">מבוסס על מצגות הקורס</span></div>
+        <div id="messages" class="messages" role="log" aria-live="polite" aria-label="היסטוריית השיחה">
+          <div id="welcome" class="welcome"><div class="welcome-mark">✳</div><h3>מאיפה מתחילים?</h3><p>שאלה על רעיון, הוכחה או תרגיל —<br>נפרק את זה יחד.</p><div class="suggestions"><button data-prompt="למה דייקסטרה לא מתאים לקשתות עם משקל שלילי?">למה דייקסטרה דורש משקלים אי־שליליים?<span>↖</span></button><button data-prompt="מה ההבדל בין פרים לקרוסקל לפי ההרצאות?">מה ההבדל בין פרים לקרוסקל?<span>↖</span></button><button data-prompt="הסבר את הקשר בין זרימה מקסימלית לחתך מינימלי.">איך זרימה מקסימלית קשורה לחתך מינימלי?<span>↖</span></button></div></div>
+        </div>
+        <form id="chat-form" class="composer"><label for="message" class="sr-only">השאלה שלך</label><textarea id="message" rows="2" maxlength="12000" placeholder="מה תרצו להבין היום?" required></textarea><div class="composer-bottom"><span>Enter לשליחה · Shift + Enter לשורה חדשה</span><button type="submit" id="send" class="primary">שליחה <span>←</span></button></div></form>
+      </section>
+      <aside class="lab-column">
+        <section class="panel lab" aria-labelledby="lab-heading">
+          <div class="panel-heading"><div><span class="section-index">02</span><h2 id="lab-heading">מעבדת אלגוריתמים</h2></div><span class="code-badge">Python</span></div>
+          <div class="lab-body"><label for="algorithm" class="field-label">בחרו אלגוריתם</label><select id="algorithm" aria-label="אלגוריתם"></select><p id="algorithm-hint" class="hint"></p>
+            <div id="graph-editor">
+              <div class="graph-toolbar"><span id="graph-kind">תצוגת הגרף</span><button type="button" id="load-example" class="text-button">טעינת דוגמה ↺</button></div>
+              <div id="graph-preview" class="graph-preview" aria-label="הגרף שהוזן"></div>
+              <label for="vertices" class="field-label">צמתים <span>מופרדים בפסיקים</span></label><input id="vertices" dir="ltr" value="A, B, C, D, E" autocomplete="off">
+              <label for="edges" class="field-label">קשתות <span>בכל שורה: מקור יעד משקל</span></label><textarea id="edges" class="code-input" dir="ltr" rows="4" spellcheck="false"></textarea>
+              <div class="graph-options"><label class="check"><input type="checkbox" id="directed"> גרף מכוון</label><div><label for="source">מקור</label><select id="source"></select></div><div id="sink-field" hidden><label for="sink">יעד</label><select id="sink"></select></div></div>
+            </div>
+            <details id="json-details" class="advanced"><summary>עריכת קלט JSON <span id="json-help">מתקדם</span></summary><p class="hint">כאשר האזור פתוח, הקלט לחישוב נלקח מה־JSON.</p><textarea id="json-input" class="code-input" dir="ltr" rows="11" spellcheck="false" aria-label="קלט JSON"></textarea><button type="button" id="json-example" class="text-button">טעינת דוגמה</button></details>
+            <div id="lab-error" class="inline-error" role="alert" hidden></div><div class="lab-actions"><button id="run-tool" class="primary">הרצת האלגוריתם <span>▷</span></button><button id="explain-tool" class="secondary">הרצה והסבר בצ׳אט</button></div><p class="footnote">עד 16 צמתים ו־60 קשתות · החישובים מתבצעים בקוד</p>
+            <div id="lab-result" aria-live="polite"></div>
+          </div>
+        </section>
+        <details class="panel library-panel"><summary><span>כל חומר הקורס</span><span class="muted">11 הרצאות ＋</span></summary><div id="lectures" class="lecture-list"></div></details>
+      </aside>
+    </div>
+    <footer class="footer"><span dir="ltr">AlgoTutor</span><span>הבנה מתחילה בשאלה טובה.</span><span>מקורות · חישובים · למידה</span></footer>
+  </main>
+  <div id="toast" class="toast" role="alert" hidden></div>
+</body>
+</html>

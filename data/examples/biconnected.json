@@ -1,0 +1,47 @@
+{
+  "algorithm": "biconnected",
+  "arguments": {
+    "graph": {
+      "vertices": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "directed": false,
+      "edges": [
+        {
+          "from": "A",
+          "to": "B",
+          "weight": 4
+        },
+        {
+          "from": "A",
+          "to": "C",
+          "weight": 2
+        },
+        {
+          "from": "B",
+          "to": "C",
+          "weight": 1
+        },
+        {
+          "from": "B",
+          "to": "D",
+          "weight": 5
+        },
+        {
+          "from": "C",
+          "to": "D",
+          "weight": 8
+        },
+        {
+          "from": "D",
+          "to": "E",
+          "weight": 2
+        }
+      ]
+    }
+  }
+}

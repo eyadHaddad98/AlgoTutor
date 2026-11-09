@@ -1,0 +1,91 @@
+{
+  "mode": "rules",
+  "accuracy": 1.0,
+  "cases": [
+    {
+      "query": "שלום",
+      "expected": "direct",
+      "actual": "direct",
+      "correct": true,
+      "method": "rules_fallback"
+    },
+    {
+      "query": "איך משתמשים במערכת?",
+      "expected": "direct",
+      "actual": "direct",
+      "correct": true,
+      "method": "rules_fallback"
+    },
+    {
+      "query": "Hello!",
+      "expected": "direct",
+      "actual": "direct",
+      "correct": true,
+      "method": "rules_fallback"
+    },
+    {
+      "query": "למה דייקסטרה דורש משקלים אי שליליים?",
+      "expected": "rag",
+      "actual": "rag",
+      "correct": true,
+      "method": "rules_fallback"
+    },
+    {
+      "query": "מה ההבדל בין BFS ל־DFS?",
+      "expected": "rag",
+      "actual": "rag",
+      "correct": true,
+      "method": "rules_fallback"
+    },
+    {
+      "query": "הסבר את הוכחת הנכונות של קרוסקל",
+      "expected": "rag",
+      "actual": "rag",
+      "correct": true,
+      "method": "rules_fallback"
+    },
+    {
+      "query": "מהו חתך מינימלי?",
+      "expected": "rag",
+      "actual": "rag",
+      "correct": true,
+      "method": "rules_fallback"
+    },
+    {
+      "query": "What is the complexity of Floyd Warshall?",
+      "expected": "rag",
+      "actual": "rag",
+      "correct": true,
+      "method": "rules_fallback"
+    },
+    {
+      "query": "הרץ דייקסטרה על הגרף שלי",
+      "expected": "tools",
+      "actual": "tools",
+      "correct": true,
+      "method": "rules_fallback"
+    },
+    {
+      "query": "חשב זרימה באדמונדס קארפ",
+      "expected": "tools",
+      "actual": "tools",
+      "correct": true,
+      "method": "rules_fallback"
+    },
+    {
+      "query": "Run BFS from A",
+      "expected": "tools",
+      "actual": "tools",
+      "correct": true,
+      "method": "rules_fallback"
+    },
+    {
+      "query": "חשב עץ פורש באמצעות פרים",
+      "expected": "tools",
+      "actual": "tools",
+      "correct": true,
+      "method": "rules_fallback"
+    }
+  ],
+  "scope": "12 labelled examples, not a representative benchmark."
+}

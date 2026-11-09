@@ -1,0 +1,32 @@
+{
+  "algorithm": "union_find",
+  "arguments": {
+    "elements": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "operations": [
+      {
+        "op": "union",
+        "a": "A",
+        "b": "B"
+      },
+      {
+        "op": "union",
+        "a": "C",
+        "b": "D"
+      },
+      {
+        "op": "union",
+        "a": "B",
+        "b": "D"
+      },
+      {
+        "op": "find",
+        "a": "C"
+      }
+    ]
+  }
+}

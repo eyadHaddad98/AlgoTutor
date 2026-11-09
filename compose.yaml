@@ -1,0 +1,60 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: algotutor
+      POSTGRES_USER: algotutor
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Run python scripts/setup.py first}
+    ports:
+      - "127.0.0.1:5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./migrations/001_init.sql:/docker-entrypoint-initdb.d/001_init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U algotutor -d algotutor"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    restart: unless-stopped
+  chroma:
+    build:
+      context: .
+      dockerfile: Dockerfile.chroma
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - chroma_data:/data
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/v2/heartbeat',timeout=3)"]
+      interval: 5s
+      timeout: 4s
+      retries: 30
+    restart: unless-stopped
+  app:
+    build: .
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql+psycopg://algotutor:${POSTGRES_PASSWORD}@db:5432/algotutor
+      CHROMA_HOST: chroma
+      CHROMA_PORT: "8000"
+      ALGO_DEMO: "0"
+      HF_HOME: /models
+    ports:
+      - "127.0.0.1:5000:5000"
+    volumes:
+      - model_cache:/models
+    depends_on:
+      db:
+        condition: service_healthy
+      chroma:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:5000/health',timeout=12)"]
+      interval: 30s
+      timeout: 15s
+      retries: 5
+    restart: unless-stopped
+volumes:
+  postgres_data:
+  chroma_data:
+  model_cache:

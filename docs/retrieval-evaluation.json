@@ -1,0 +1,165 @@
+{
+  "cases": [
+    {
+      "query": "מהו גרף וכיצד מייצגים רשימת שכנויות?",
+      "expected_lecture": 1,
+      "retrieved_lectures": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "hit_at_6": true,
+      "top_score": 0.9038
+    },
+    {
+      "query": "איך אלגוריתם BFS מחשב מרחקים בגרף לא ממושקל?",
+      "expected_lecture": 2,
+      "retrieved_lectures": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "hit_at_6": true,
+      "top_score": 0.9162
+    },
+    {
+      "query": "למה אלגוריתם דייקסטרה דורש משקלים חיוביים?",
+      "expected_lecture": 3,
+      "retrieved_lectures": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "hit_at_6": true,
+      "top_score": 0.8643
+    },
+    {
+      "query": "איך בלמן פורד מזהה מעגל שלילי?",
+      "expected_lecture": 4,
+      "retrieved_lectures": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "hit_at_6": true,
+      "top_score": 0.8865
+    },
+    {
+      "query": "איך אלגוריתם פלויד וורשל מחשב מרחקים בין כל זוג צמתים?",
+      "expected_lecture": 5,
+      "retrieved_lectures": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "hit_at_6": true,
+      "top_score": 0.9036
+    },
+    {
+      "query": "איך אלגוריתם פרים בונה עץ פורש מינימלי?",
+      "expected_lecture": 6,
+      "retrieved_lectures": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "hit_at_6": true,
+      "top_score": 0.906
+    },
+    {
+      "query": "מה תפקיד Union Find באלגוריתם קרוסקל?",
+      "expected_lecture": 7,
+      "retrieved_lectures": [
+        7,
+        7,
+        7,
+        7,
+        7,
+        7
+      ],
+      "hit_at_6": true,
+      "top_score": 0.8946
+    },
+    {
+      "query": "מהם זמני הגילוי והסיום ב DFS?",
+      "expected_lecture": 8,
+      "retrieved_lectures": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "hit_at_6": true,
+      "top_score": 0.8705
+    },
+    {
+      "query": "מהם צמתי הפרדה ורכיבים דו קשירים?",
+      "expected_lecture": 9,
+      "retrieved_lectures": [
+        9,
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "hit_at_6": true,
+      "top_score": 0.895
+    },
+    {
+      "query": "מהו מסלול משפר ברשת זרימה?",
+      "expected_lecture": 10,
+      "retrieved_lectures": [
+        10,
+        10,
+        10,
+        10,
+        11,
+        10
+      ],
+      "hit_at_6": true,
+      "top_score": 0.8573
+    },
+    {
+      "query": "מהי הסיבוכיות של אדמונדס קארפ?",
+      "expected_lecture": 11,
+      "retrieved_lectures": [
+        11,
+        11,
+        11,
+        11,
+        11,
+        1
+      ],
+      "hit_at_6": true,
+      "top_score": 0.8526
+    }
+  ],
+  "lecture_recall_at_6": 1.0,
+  "scope": "11 explicit queries; lecture recall only, not answer accuracy or an unbiased benchmark.",
+  "ingestion": {
+    "chunks": 479,
+    "lectures": 11,
+    "corpus_sha256": "471ecda6e14c6a9607f2bef8b0afd47935ebb50eefd315e324fbb4ba738e4f1f"
+  }
+}
