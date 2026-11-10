@@ -2,7 +2,7 @@
 
 עוזר לימודי לקורס אלגוריתמים ב׳: שאלות על **כל 11 ההרצאות**, הפניות למקורות ו־**12 כלי חישוב** עם פירוט צעדים. הממשק בעברית ובנוי ב־HTML, CSS ו־JavaScript רגיל; השרת ב־Flask.
 
-**English instructions:** [README.md](README.md). מדריך קצר למתחילים: [START_HERE_HE.md](START_HERE_HE.md).
+**English instructions:** [README.md](README.md). מדריך קצר למתחילים: [START_HERE.md](START_HERE.md).
 
 ## מה כלול
 
