@@ -14,4 +14,4 @@ This repository contains the project's source code. Course lecture PDFs and thei
 
 Without the lecture files, the application can still provide algorithm calculation tools. Lecture-based **Retrieval-Augmented Generation (RAG)** becomes available only after the materials have been prepared and ingested.
 
-For more details, see [README.md](README.md) and [README_HE.md](README_HE.md).
+For more details, see [README.md](README.md).
