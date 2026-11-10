@@ -1,7 +1,5 @@
 # AlgoTutor
 
-> **Public GitHub edition:** The original course PDFs and their extracted text are **not distributed** here. This protects the course author's rights. The code, algorithm tools, UI and tests are included. To enable RAG with course lectures, obtain the PDFs from an authorized source, store them locally in `data/lectures/lecture-01.pdf` through `lecture-11.pdf`, run `python scripts/prepare_materials.py` on your own computer, then run the ingestion command below. The `.gitignore` excludes both directories from Git. Without lecture files the algorithm calculator remains available; source-grounded RAG needs a prepared corpus. **Never commit your `.env` file.**
-
 A Hebrew-first tutor for the supplied **11 algorithms lectures**, with **12 deterministic Python tools**, source citations and step-by-step graph visualizations. Plain HTML/CSS/JavaScript frontend, Flask backend, PostgreSQL history, separate Chroma vector service, Anthropic tool calling and LangChain LCEL.
 
 Full Hebrew guide: [README.md](README.md). Beginner Windows guide: [START_HERE_HE.md](START_HERE_HE.md).
