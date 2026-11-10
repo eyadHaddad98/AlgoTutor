@@ -2,7 +2,7 @@
 
 A Hebrew-first tutor for the supplied **11 algorithms lectures**, with **12 deterministic Python tools**, source citations and step-by-step graph visualizations. Plain HTML/CSS/JavaScript frontend, Flask backend, PostgreSQL history, separate Chroma vector service, Anthropic tool calling and LangChain LCEL.
 
-Full Hebrew guide: [README.md](README.md). Beginner Windows guide: [START_HERE_HE.md](START_HERE_HE.md).
+Full Hebrew guide: [README_HE.md](README_HE.md). Beginner Windows guide: [START_HERE_HE.md](START_HERE_HE.md).
 
 ## Full deployment (academic submission)
 
